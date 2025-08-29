@@ -3,6 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserPageController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\InstructorController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,10 +23,17 @@ Route::middleware('auth')->group(function () {
 
 
 
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+
+Route::get('/instructor', [InstructorController::class, 'index'])->name('instructor.index');
+Route::post('/instructor', [InstructorController::class, 'store'])->name('instructor.store');
+
+
+
 Route::prefix("user_pages")->name('user_pages.')->group(function () {
     Route::get('/', [UserPageController::class, 'index'])->name('index');
     Route::get('/contact', [UserPageController::class, 'contact'])->name('contact');
-
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

@@ -15,6 +15,13 @@
                     <div class=" mt-5 mt-lg-0">
 
                         <div class="card p-5">
+                            @if (Session::has('success'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    {{ Session::get('success') }}
+                                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+                                </div>
+                            @endif
                             <div class="card-header bg-transparent text-center">
                                 <h2> أدخل بيانات حسابك لتسجيل الدخول</h2>
                                 <p>أدخل بياناتك حسابك لمتابعة تطوير مهاراتك</p>

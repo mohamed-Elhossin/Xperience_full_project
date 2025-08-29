@@ -79,7 +79,7 @@
         <div class="layout-cover">
             <h1>آنضم الينا وكن مع باقي المبدعين و المؤثيين</h1>
             <div class="d-grid">
-                <a class="btn w-25 m-auto" href="#"> سجل كمحاضر</a>
+                <a class="btn   m-auto" href="#"> سجل كمحاضر</a>
             </div>
         </div>
 

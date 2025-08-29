@@ -833,6 +833,7 @@ section {
 }
 .layout-cover a {
     /* margin: 50px 0px; */
+    width: 25%;
     border-radius: 20px;
     border: 1px solid white;
     color: white;
@@ -850,6 +851,29 @@ section {
     color: #37423b;
 }
 
+@media (max-width: 750px) {
+    .layout-cover {
+        padding: 70px;
+    }
+    .layout-cover h1 {
+        font-family: Almarai;
+        color: white;
+        font-size: 35px;
+        margin: 10px 0px;
+    }
+    .layout-cover a {
+    /* margin: 50px 0px; */
+    border-radius: 20px;
+    width: 90%;
+    margin: 10px 0px;
+    border: 1px solid white;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    font-family: Almarai;
+}
+}
+/* ################# */
 .courses .trainer {
     padding-top: 15px;
     border-top: 1px solid #eef0ef;
@@ -1685,4 +1709,11 @@ section {
     background-image: url("../../img/cover2.png");
     background-position: center center;
     background-size: cover;
+}
+
+
+.contact3 .header{
+    font-family: Almarai !important;
+    text-align: center;
+    margin: 30px 0px;
 }
