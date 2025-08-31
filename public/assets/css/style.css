@@ -1717,3 +1717,12 @@ section {
     text-align: center;
     margin: 30px 0px;
 }
+
+
+#header .dropdown-menu {
+    background-color: white;
+
+}
+#header .dropdown-menu a {
+    font-family: Almarai !important;
+}

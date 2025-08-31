@@ -1,48 +1,73 @@
-<section>
-    <header>
-        <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Update Password') }}
-        </h2>
 
-        <p class="mt-1 text-sm text-gray-600">
-            {{ __('Ensure your account is using a long, random password to stay secure.') }}
-        </p>
-    </header>
+@extends('user.layout.user')
 
-    <form method="post" action="{{ route('password.update') }}" class="mt-6 space-y-6">
-        @csrf
-        @method('put')
-
-        <div>
-            <x-input-label for="update_password_current_password" :value="__('Current Password')" />
-            <x-text-input id="update_password_current_password" name="current_password" type="password" class="mt-1 block w-full" autocomplete="current-password" />
-            <x-input-error :messages="$errors->updatePassword->get('current_password')" class="mt-2" />
+@section('user_content')
+    <main id="main">
+        <div class="breadcrumbs" data-aos="fade-in">
+            <div class="container">
+                <h2> معلومات الملف الشخصي</h2>
+                <p class="mt-1"> قم بتحديث معلومات الملف الشخصي وعنوان البريد الإلكتروني الخاص بحسابك. </p>
+            </div>
         </div>
 
-        <div>
-            <x-input-label for="update_password_password" :value="__('New Password')" />
-            <x-text-input id="update_password_password" name="password" type="password" class="mt-1 block w-full" autocomplete="new-password" />
-            <x-input-error :messages="$errors->updatePassword->get('password')" class="mt-2" />
-        </div>
+        <section id="contact" class="contact">
 
-        <div>
-            <x-input-label for="update_password_password_confirmation" :value="__('Confirm Password')" />
-            <x-text-input id="update_password_password_confirmation" name="password_confirmation" type="password" class="mt-1 block w-full" autocomplete="new-password" />
-            <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" class="mt-2" />
-        </div>
+            <div class="container col-md-8" data-aos="fade-up">
 
-        <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+                <div class="row mt-5">
 
-            @if (session('status') === 'password-updated')
-                <p
-                    x-data="{ show: true }"
-                    x-show="show"
-                    x-transition
-                    x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600"
-                >{{ __('Saved.') }}</p>
-            @endif
-        </div>
-    </form>
-</section>
+                    <div class="  mt-5 mt-lg-0">
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
+                        <div class="card">
+                            <div class="card-body">
+                                <form method="post" action="{{ route('password.update') }}" role="form"
+                                    class="php-email-form">
+                                    @csrf
+                                    @method('put')
+                                    <div class="row">
+                                        <div class="col-md-12 form-group">
+                                            <input type="password" name="current_password"
+                                                class="form-control @error('current_password', 'updatePassword') is-invalid @enderror text-start"
+                                                placeholder="كلمه المرور الحاليه" required>
+                                            @error('current_password', 'updatePassword')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-md-12 form-group">
+                                            <input type="password" name="password"
+                                                class="form-control @error('password', 'updatePassword') is-invalid @enderror text-start"
+                                                placeholder="كلمه المرور الجديده" required>
+                                            @error('password', 'updatePassword')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-md-12 form-group">
+                                            <input type="password" name="password_confirmation"
+                                                class="form-control @error('password_confirmation', 'updatePassword') is-invalid @enderror text-start"
+                                                placeholder="تأكيد المرور الجديده" required>
+                                            @error('password_confirmation', 'updatePassword')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+
+                                    </div>
+                                    <div class="text-start my-2"><button type="submit">تحديث كلمه المرور</button></div>
+
+                                </form>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+@endsection

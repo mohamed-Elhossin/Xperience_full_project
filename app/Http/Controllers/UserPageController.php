@@ -26,4 +26,9 @@ class UserPageController extends Controller
             'user.pages.contact'
         );
     }
+
+    public function change_password()
+    {
+        return view('profile.partials.update-password-form');
+    }
 }

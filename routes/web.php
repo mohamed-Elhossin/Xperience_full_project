@@ -28,8 +28,7 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 
 Route::get('/instructor', [InstructorController::class, 'index'])->name('instructor.index');
 Route::post('/instructor', [InstructorController::class, 'store'])->name('instructor.store');
-
-
+Route::get("change_password",[UserPageController::class,'change_password'])->name('change_password');
 
 Route::prefix("user_pages")->name('user_pages.')->group(function () {
     Route::get('/', [UserPageController::class, 'index'])->name('index');
