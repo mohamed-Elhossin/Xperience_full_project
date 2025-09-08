@@ -12,7 +12,7 @@ class Instructor extends Model
         'phone',
         'email',
         'linkedIn',
-        'github',
+        'field_id',
         'cv',
     ];
 }

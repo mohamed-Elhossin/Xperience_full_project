@@ -13,7 +13,7 @@
                 قَالُوا سُبْحَانَكَ لَا عِلْمَ لَنَا إِلَّا مَا عَلَّمْتَنَا ۖ إِنَّكَ
                 أَنتَ الْعَلِيمُ الْحَكِيمُ (32)
             </h2>
-            <a href="courses.html" class="d-block m-auto btn mt-3 w-25 btn-get-started">
+            <a href="{{route("user_pages.contact")}}" class="d-block m-auto btn mt-3 w-25 btn-get-started">
                 سجل ماعنا الأن
             </a>
         </div>
@@ -79,7 +79,7 @@
         <div class="layout-cover">
             <h1>آنضم الينا وكن مع باقي المبدعين و المؤثيين</h1>
             <div class="d-grid">
-                <a class="btn   m-auto" href="#"> سجل كمحاضر</a>
+                <a class="btn   m-auto" href="{{route("instructor.index")}}"> سجل كمحاضر</a>
             </div>
         </div>
 

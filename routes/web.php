@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\UserPageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserPageController;
+use App\Http\Controllers\PayCourseController;
 use App\Http\Controllers\InstructorController;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.pages.index');
 });
 
 Route::get('/dashboard', function () {
@@ -28,7 +29,14 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 
 Route::get('/instructor', [InstructorController::class, 'index'])->name('instructor.index');
 Route::post('/instructor', [InstructorController::class, 'store'])->name('instructor.store');
-Route::get("change_password",[UserPageController::class,'change_password'])->name('change_password');
+Route::get("change_password", [UserPageController::class, 'change_password'])->name('change_password');
+
+
+Route::prefix("pay_courses")->name('pay_courses.')->group(function () {
+    Route::get("/", [PayCourseController::class, 'index'])->name('index');
+});
+
+
 
 Route::prefix("user_pages")->name('user_pages.')->group(function () {
     Route::get('/', [UserPageController::class, 'index'])->name('index');

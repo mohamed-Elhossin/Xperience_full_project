@@ -31,7 +31,9 @@
 
 
                     <div class="col-lg-5 col-md-6 footer-newsletter">
-                        <h4> انضم ألينا</h4>
+                        <a href="{{ route('instructor.index') }}">
+                            <h4> انضم ألينا</h4>
+                        </a>
                         <p> آنضم الينا وكن مع باقي المبدعين و المؤثيين
                         </p>
                     </div>

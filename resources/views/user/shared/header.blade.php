@@ -10,10 +10,10 @@
                 <ul>
                     <li><a class="active" href="{{ route('user_pages.index') }}">الرئيسيه</a></li>
                     <li><a href="{{ route('user_pages.index') }}#about">من نحن</a></li>
-                    {{-- <li><a href="courses.html">الدورات</a></li> --}}
+                    <li><a href="{{ route('pay_courses.index') }}">الدورات</a></li>
                     {{-- <li><a href="trainers.html">المحاضرين</a></li> --}}
                     {{-- <li><a href="events.html">الاحداث والمناسبات</a></li> --}}
-                    {{-- <li><a href="#features"> الاقسام</a></li> --}}
+                    <li><a href="{{ route('instructor.index') }}"> كن محاضر</a></li>
 
                     <li><a href="{{ route('user_pages.contact') }}">تواصل ماعنا</a></li>
 
@@ -32,8 +32,8 @@
                             {{ Auth::user()->name }}
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{route("profile.edit")}}">تعديل البيانات</a></li>
-                            <li><a class="dropdown-item" href="{{route("change_password")}}">تغير كلمة المرور</a></li>
+                            <li><a class="dropdown-item" href="{{ route('profile.edit') }}">تعديل البيانات</a></li>
+                            <li><a class="dropdown-item" href="{{ route('change_password') }}">تغير كلمة المرور</a></li>
                             <hr>
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf

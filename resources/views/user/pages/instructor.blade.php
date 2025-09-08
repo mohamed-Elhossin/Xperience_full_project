@@ -42,32 +42,40 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <div class="form-group mt-3">
+                                        <input type="email" class="form-control text-start" name="email" id="email"
+                                            placeholder="البريد الالكتروني" value="{{ old('email') }}" required>
+                                        @error('email')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <div class="form-group mt-3">
+                                        <input type="url" class="form-control  text-start " name="linkedIn"
+                                            id="linkedIn" placeholder="رابط حساب لينكدإن" value="{{ old('linkedIn') }}"
+                                            required>
+                                        @error('linkedIn')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
                             </div>
+
+
                             <div class="form-group mt-3">
-                                <input type="email" class="form-control text-start" name="email" id="email"
-                                    placeholder="البريد الالكتروني" value="{{ old('email') }}" required>
-                                @error('email')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
-                            </div>
-                            <div class="form-group mt-3">
-                                <input type="url" class="form-control  text-start " name="linkedIn" id="linkedIn"
-                                    placeholder="رابط حساب لينكدإن" value="{{ old('linkedIn') }}" required>
-                                @error('linkedIn')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
-                            </div>
-                            <div class="form-group mt-3">
-                                <input type="url" class="form-control  text-start" name="github" id="github"
-                                    placeholder="رابط حساب جيت هب" value="{{ old('github') }}" required>
-                                @error('github')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
+                                <select name="field_id" class="form-select" id="field_id">
+                                    <option selected disabled value="">اختر التخصص</option>
+                                    @foreach ($fields as $field)
+                                        <option value="{{ $field->id }}">{{ $field->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group mt-3">
                                 <label for=""> ملف السيره الذاتيه </label>
-                                <input type="file" class="form-control   text-start" name="cv" id="cv" accept=".pdf"
-                                    required>
+                                <input type="file" class="form-control   text-start" name="cv" id="cv"
+                                    accept=".pdf" required>
                                 @error('cv')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -77,7 +85,7 @@
                                     <div class="alert alert-success">{{ session('success') }}</div>
                                 @endif
 
-                             </div>
+                            </div>
                             <div class="text-center"><button type="submit">إرسال البيانات</button></div>
                         </form>
 
