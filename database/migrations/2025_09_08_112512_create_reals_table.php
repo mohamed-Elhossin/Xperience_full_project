@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('instructors', function (Blueprint $table) {
+        Schema::create('reals', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('phone');
-            $table->string('email')->unique();
-            $table->text('linkedIn');
-            $table->foreignId('field_id')->constrained('fields')->onDelete('cascade')->onUpdate('cascade');
-            $table->text('cv');
+            $table->string('title');
+            $table->string('url');
+            $table->text('description')->nullable();
+            $table->foreignId('pay_course_id')->constrained('pay_courses')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('reals');
     }
 };
