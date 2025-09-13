@@ -41,7 +41,7 @@
                         <!-- Course Header -->
                         <div class="course-header" data-aos="fade-up" data-aos-delay="200">
                             <div class="course-image">
-                                <img src="http://127.0.0.1:8000/pay_courses/{{ $course->image }}" alt="Course Image"
+                                <img src="{{ env('XPERIENCE_DASHBOARD_URL') }}/pay_courses/{{ $course->image }}" alt="Course Image"
                                     class="img-fluid" />
                             </div>
 

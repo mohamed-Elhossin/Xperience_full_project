@@ -16,7 +16,7 @@
                     @foreach ($courses as $item)
                         <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                             <div class="course-item">
-                                <img src="http://127.0.0.1:8000/pay_courses/{{ $item->image }}" class="img-fluid"
+                                <img src="{{ env('XPERIENCE_DASHBOARD_URL') }}/pay_courses/{{ $item->image }}" class="img-fluid"
                                     alt="...">
                                 <div class="course-content">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
