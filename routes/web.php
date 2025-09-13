@@ -34,6 +34,7 @@ Route::get("change_password", [UserPageController::class, 'change_password'])->n
 
 Route::prefix("pay_courses")->name('pay_courses.')->group(function () {
     Route::get("/", [PayCourseController::class, 'index'])->name('index');
+    Route::get("/show/{id}", [PayCourseController::class, 'show'])->name('show');
 });
 
 

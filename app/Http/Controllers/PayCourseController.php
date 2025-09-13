@@ -35,9 +35,12 @@ class PayCourseController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Pay_course $pay_course)
+    public function show($id)
     {
-        //
+        $course = Pay_course:: find($id);
+        $sections = $course->sections()->with('sectionContents')->get();
+ 
+        return view("user.pages.courses.course-details", compact('course', 'sections'));
     }
 
     /**

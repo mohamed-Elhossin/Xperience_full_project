@@ -16,4 +16,9 @@ class Pay_course extends Model
         'contentFile',
         'contentDrive',
     ];
+ 
+    public function sections()
+    {
+        return $this->hasMany(Section::class);
+    }
 }
